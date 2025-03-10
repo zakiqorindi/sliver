@@ -616,7 +616,7 @@ func GenerateConfig(name string, implantConfig *clientpb.ImplantConfig) (*client
 
 	// Cert PEM encoded certificates
 	serverCACert, _, _ := certs.GetCertificateAuthorityPEM(certs.MtlsServerCA)
-	sliverCert, sliverKey, err := certs.MtlsC2ImplantGenerateECCCertificate(name)
+	sliverCert, sliverKey, err := certs.MtlsC2ImplantGenerateRSACertificate(name)
 	if err != nil {
 		return nil, err
 	}

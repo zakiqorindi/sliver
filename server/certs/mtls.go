@@ -25,15 +25,15 @@ const (
 )
 
 // MtlsC2ServerGenerateECCCertificate - Generate a server certificate signed with a given CA
-func MtlsC2ServerGenerateECCCertificate(host string) ([]byte, []byte, error) {
-	cert, key := GenerateECCCertificate(MtlsServerCA, host, false, false)
-	err := saveCertificate(MtlsServerCA, ECCKey, host, cert, key)
+func MtlsC2ServerGenerateRSACertificate(host string) ([]byte, []byte, error) {
+	cert, key := GenerateRSACertificate(MtlsServerCA, host, false, false)
+	err := saveCertificate(MtlsServerCA, RSAKey, host, cert, key)
 	return cert, key, err
 }
 
-// MtlsC2ImplantGenerateECCCertificate - Generate a server certificate signed with a given CA
+// MtlsC2ImplantGenerateRSACertificate - Generate a server certificate signed with a given CA
 func MtlsC2ImplantGenerateECCCertificate(name string) ([]byte, []byte, error) {
-	cert, key := GenerateECCCertificate(MtlsImplantCA, name, false, true)
-	err := saveCertificate(MtlsImplantCA, ECCKey, name, cert, key)
+	cert, key := GenerateRSACertificate(MtlsImplantCA, name, false, true)
+	err := saveCertificate(MtlsImplantCA, RSAKey, name, cert, key)
 	return cert, key, err
 }

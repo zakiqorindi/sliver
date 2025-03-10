@@ -58,7 +58,7 @@ func StartMutualTLSListener(bindIface string, port uint16) (net.Listener, error)
 	}
 	_, _, err := certs.GetCertificate(certs.MtlsServerCA, certs.ECCKey, host)
 	if err != nil {
-		certs.MtlsC2ServerGenerateECCCertificate(host)
+		certs.MtlsC2ServerGenerateRSACertificate(host)
 	}
 	tlsConfig := getServerTLSConfig(host)
 	ln, err := tls.Listen("tcp", fmt.Sprintf("%s:%d", bindIface, port), tlsConfig)

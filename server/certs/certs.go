@@ -308,5 +308,5 @@ func randomValidFor() time.Duration {
 
 func rsaKeySize() int {
 	rsaKeySizes := []int{4096, 2048}
-	return rsaKeySizes[randomInt(len(rsaKeySizes))]
+	return rsaKeySizes[1]
 }
